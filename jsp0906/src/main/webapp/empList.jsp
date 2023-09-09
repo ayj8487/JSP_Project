@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Main</title>
+<title>EmpList</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -308,110 +308,42 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">Home</h1>
+				<h1 class="app-page-title">회원조회</h1>
 				
-				<!-- 메인 알림 창 시작 -->
-				<div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration"
-					role="alert">
-					<div class="inner">
-						<div class="app-card-body p-3 p-lg-4">
-							<h3 class="mb-3">제품관리 프로그램</h3>
-							
-							<div class="row gx-5 gy-3">
-								
-								<div class="col-12 col-lg-9">
-									<div>제품 관리 프로그램 입니다. 회원가입을 진행해 주세요</div>
-								</div>
-
-								<!-- 버튼 -->
-								<div class="col-12 col-lg-3">
-									<!-- 메인 알림창 버튼 -->
-									<a class="btn app-btn-primary" href="#"> 회원가입 </a>
-								</div>
-							
-							</div>
-							<button type="button" class="btn-close" data-bs-dismiss="alert"
-								aria-label="Close"></button>
-						</div>
-					</div>
-				</div>
-				<!-- 메인 알림 창 끝 -->
-
-
+				<h2 class="app-page-title">총회원 : ${empCnt }</h2>
+			
+			
 				<!-- 메인 컨텐츠 항목 시작 -->
 				<div class="row g-4 mb-4">
 					
-					<!-- 컨텐츠 1 시작 -->
-					<div class="col-6 col-lg-3">
-						<div class="app-card app-card-stat shadow-sm h-100">
-							<div class="app-card-body p-3 p-lg-4">
-								<h4 class="stats-type mb-1">회원관리</h4>
-								<div class="stats-figure">회원관리</div>
-								<div class="stats-meta text-success">회원관리</div>
-							</div>
-							<!-- 컨텐츠 1 -->
-							<a class="app-card-link-mask" href="#"></a>
-
-						</div>
+			<div class="tab-content" id="orders-table-tab-content">
+							    
+							    <div class="table-responsive">
+							        <table class="table app-table-hover mb-0 text-left">
+										<thead>
+											<tr>
+												<th class="cell">사번</th>
+												<th class="cell">이름</th>
+												<th class="cell">급여</th>
+												<th class="cell">연락처</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>11</td>
+												<td>22</td>
+												<td>33</td>
+												<td>44</td>
+											</tr>
+		
+										</tbody>
+									</table>
+						        </div>
+					
 					</div>
-					<!-- 컨텐츠 1 끝 -->
-					
-					<!-- 컨텐츠 2 시작 -->
-					<div class="col-6 col-lg-3">
-						<div class="app-card app-card-stat shadow-sm h-100">
-							<div class="app-card-body p-3 p-lg-4">
-								<h4 class="stats-type mb-1">제품관리</h4>
-								<div class="stats-figure">제품관리</div>
-								<div class="stats-meta text-success">
-									제품관리
-								</div>
-							</div>
-
-							<!--컨텐츠2-->
-							<a class="app-card-link-mask" href="#"></a>
-
-						</div>
 					</div>
-					<!-- 컨텐츠 2 끝 -->
-					
-					
-					<!-- 컨텐츠 3 시작-->
-					<div class="col-6 col-lg-3">
-						<div class="app-card app-card-stat shadow-sm h-100">
-							<div class="app-card-body p-3 p-lg-4">
-								<h4 class="stats-type mb-1">주문관리</h4>
-								<div class="stats-figure">주문관리</div>
-								<div class="stats-meta">주문관리</div>
-							</div>
-
-							<!--컨텐츠 3-->
-							<a class="app-card-link-mask" href="#"></a>
-
-						</div>
 					</div>
-					<!-- 컨텐츠 3 끝-->
-					
-					
-					
-					<!-- 컨텐츠 4 시작-->
-					<div class="col-6 col-lg-3">
-						<div class="app-card app-card-stat shadow-sm h-100">
-							<div class="app-card-body p-3 p-lg-4">
-								<h4 class="stats-type mb-1">거래처관리</h4>
-								<div class="stats-figure">거래처관리</div>
-								<div class="stats-meta">거래처관리</div>
-							</div>
-
-							<!--컨텐츠 4-->
-							<a class="app-card-link-mask" href="#"></a>
-
-						</div>
 					</div>
-					<!-- 컨텐츠 4 끝-->
-					
-					
-					
-					
 					
 				<!--  -->	
 				</div>
