@@ -310,42 +310,38 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">회원조회</h1>
+				<h1 class="app-page-title">회원등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
 				<div class="row g-4 mb-4">
 					
 			<div class="tab-content" id="orders-table-tab-content">
-							    
-							    <div class="table-responsive">
-								<fieldset>
-									<legend>회원 : ${empCnt }</legend>
-								</fieldset>
-							        
-							        <table class="table app-table-hover mb-0 text-left">
-										<thead>
-											<tr>
-												<th class="cell">사번</th>
-												<th class="cell">이름</th>
-												<th class="cell">급여</th>
-												<th class="cell">연락처</th>
-											</tr>
-										</thead>
-										<tbody>
-										<!-- 회원 리스트 -->
-										<c:forEach items="${list }" var="emp">
-										
-											<tr>
-												<td>${emp.empno }</td>
-												<td>${emp.emp_name }</td>
-												<td>${emp.sal }</td>
-												<td>${emp.phone }</td>
-											</tr>
-		
-										</c:forEach>
-										</tbody>
-									</table>
-						        </div>
+							
+					<!-- 회원 등록 -->		    
+					<div class="auth-form-container text-start mx-auto">
+						<form action="empPro.do" method="post">         
+							<div class="mb-3">
+								사번<input id="empno" name="empno" type="number" class="form-control" placeholder="Empno" required="required">
+							</div>
+							<div class="mb-3">
+								이름 <input id="emp_name" name="emp_name" type="text" class="form-control" placeholder="Name" required="required">
+							</div>
+							<div class="mb-3">
+								급여 <input id="sal" name="sal" type="number" class="form-control" placeholder="Salary" required="required">
+							</div>
+							
+							<div class="mb-3">
+								연락처<input id="phone" name="phone" type="tel" class="form-control" required="required" 	pattern="\d{2,3}-\d{3,4}-\d{4}" title="2,3자리-3,4자리-4자리" placeholder="010-xxxx-xxxx">
+							</div>
+							
+							<div class="text-center">
+								<input type="submit" value="회원등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
+							</div>
+						</form>
+						
+						<div class="auth-option text-center pt-5">Already have an account? <a class="text-link" href="#" >Log in</a></div>
+					</div>	
+					
 					
 					</div>
 					</div>

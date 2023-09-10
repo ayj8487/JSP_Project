@@ -1,12 +1,14 @@
 package service;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.EmpDao;
+import dto.Emp;
 
 public class EmpList implements CommandProcess{
 
@@ -20,8 +22,12 @@ public class EmpList implements CommandProcess{
 		EmpDao empDao = EmpDao.getInstance();
 		
 		try {
+			
+			List<Emp> list = empDao.empList();
 			int empCnt = empDao.getEmpCnt();
 			
+			
+			request.setAttribute("list", list);
 			request.setAttribute("empCnt", empCnt);
 			
 		} catch (Exception e) {
