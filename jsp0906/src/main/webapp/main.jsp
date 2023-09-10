@@ -346,11 +346,11 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">회원관리</h4>
-								<div class="stats-figure">회원관리</div>
+								<div class="stats-figure">회원등록</div>
 								<div class="stats-meta text-success">회원관리</div>
 							</div>
 							<!-- 컨텐츠 1 -->
-							<a class="app-card-link-mask" href="#"></a>
+							<a class="app-card-link-mask" href="empForm.do"></a>
 
 						</div>
 					</div>
@@ -361,7 +361,7 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">제품관리</h4>
-								<div class="stats-figure">제품관리</div>
+								<div class="stats-figure">제품등록</div>
 								<div class="stats-meta text-success">
 									제품관리
 								</div>
@@ -380,7 +380,7 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">주문관리</h4>
-								<div class="stats-figure">주문관리</div>
+								<div class="stats-figure">주문등록</div>
 								<div class="stats-meta">주문관리</div>
 							</div>
 
@@ -398,7 +398,7 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">거래처관리</h4>
-								<div class="stats-figure">거래처관리</div>
+								<div class="stats-figure">거래처등록</div>
 								<div class="stats-meta">거래처관리</div>
 							</div>
 

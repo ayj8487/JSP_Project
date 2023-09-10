@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpList</title>
+<title>EmpREG</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
