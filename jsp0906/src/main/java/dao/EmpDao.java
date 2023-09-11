@@ -146,4 +146,76 @@ public class EmpDao {
 		return result;
 	}
 
+	// 사원 상세 조회
+	public Emp selectInfo(int empno) throws SQLException {
+		Emp emp = new Emp();
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from emp where empno = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, empno);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				emp.setEmpno(rs.getInt("empno"));
+				emp.setEmp_name(rs.getString("emp_name"));
+				emp.setSal(rs.getInt("sal"));
+				emp.setPhone(rs.getString("phone"));
+
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return emp;
+	}
+
+	// 사원 업데이트
+	public int empUpdate(Emp emp) throws SQLException {
+		int result = 0;
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "update emp set emp_name = ?, sal = ? , phone = ? where empno = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, emp.getEmp_name());
+			pstmt.setInt(2, emp.getSal());
+			pstmt.setString(3, emp.getPhone());
+			pstmt.setInt(4, emp.getEmpno());
+
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+
+		return result;
+	}
+
 }
