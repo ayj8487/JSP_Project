@@ -190,31 +190,28 @@ public class EmpDao {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		String sql = "update emp set emp_name = ?, sal = ? , phone = ? where empno = ?";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-
+			
 			pstmt.setString(1, emp.getEmp_name());
 			pstmt.setInt(2, emp.getSal());
 			pstmt.setString(3, emp.getPhone());
 			pstmt.setInt(4, emp.getEmpno());
-
+			
 			result = pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if (rs != null)
-				rs.close();
 			if (pstmt != null)
 				pstmt.close();
 			if (conn != null)
 				conn.close();
 		}
-
+		System.out.println(result);
 		return result;
 	}
 

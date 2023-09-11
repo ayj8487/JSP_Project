@@ -22,6 +22,14 @@
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
+<!-- 사원 삭제 스크립트 -->
+<script type="text/javascript">
+function del(){
+	alert("사원을 삭제 하시겠습니까?");
+	location.href="delete.do";
+}
+
+</script>
 
 </head>
 
@@ -311,14 +319,14 @@
 				
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
-				<div class="row g-4 mb-4">
+			<div class="row g-4 mb-4 ">
 					
-			<div class="tab-content" id="orders-table-tab-content">
+				<div class="tab-content" id="orders-table-tab-content">
 							
 							
 					<!-- 회원 수정  -->		    
 			    <h1 class="app-page-title">Account</h1>
-                <div class="row gy-4">
+           <div class="row gy-4 justify-content-center align-items-center">
 	                <div class="col-12 col-lg-6">
 		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
 						    <div class="app-card-header p-3 border-bottom-0">
@@ -329,7 +337,6 @@
   <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
 </svg>
 									    </div>
-						                
 						                <!-- 아이콘 -->
 							        </div>
 							        <div class="col-auto">
@@ -338,6 +345,9 @@
 						        </div>
 						    </div>
 						    
+						    <!-- 삭제 버튼 -->
+						     <button type="button" class="btn-close" style="margin-top: -80px; margin-left: auto;" onclick="del();"></button> 
+							
 							<form action="empUpdate.do" method="post">
 						    <div class="app-card-body px-4 w-100">
 							    <div class="item border-bottom py-3">
@@ -357,7 +367,7 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Empno</strong></div>
-									        <div class="item-data"><input type="hidden" value="${emp.empno }"> ${emp.empno }</div>
+									        <div class="item-data"><input type="hidden" id="empno" name="empno" value="${emp.empno }"> ${emp.empno }</div>
 									    </div>
 								    </div>
 							    </div>
@@ -367,7 +377,7 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Name</strong></div>
-									        <div class="item-data"><input type="text"  class="form-control" value="${emp.emp_name }" required="required"></div>
+									        <div class="item-data"><input type="text" id="emp_name" name="emp_name" class="form-control" value="${emp.emp_name }" required="required"></div>
 									    </div>
 								    </div>
 							    </div>
@@ -376,7 +386,7 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Salary</strong></div>
-									        <div class="item-data"><input type="text" class="form-control"  value="${emp.sal }" required="required"></div>
+									        <div class="item-data"><input type="text" id="sal" name="sal"  class="form-control"  value="${emp.sal }" required="required"></div>
 									    </div>
 								    </div>
 							    </div>

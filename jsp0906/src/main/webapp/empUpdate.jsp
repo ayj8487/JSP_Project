@@ -19,7 +19,7 @@
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
 		alert("오류 : 다시 시도해주세요");
-		location.href="empInfo?empno=${emp.empno}";
+		location.href="main.do";
 	</script>
 </c:if>
 
