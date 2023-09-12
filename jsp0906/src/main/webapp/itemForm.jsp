@@ -64,13 +64,13 @@
 						<!-- 상태 바 시작  -->
 						<div class="app-utilities col-auto">
 							
-							<!--  사원 상태 -->							
+							<!--  회원 상태 -->							
 							<div class="app-utility-item app-user-dropdown dropdown">
 								<a class="dropdown-toggle" id="user-dropdown-toggle"
 									data-bs-toggle="dropdown" href="#" role="button"
 									aria-expanded="false"> 
 
-									<!-- 사원 이미지 --> 
+									<!-- 회원 이미지 --> 
 									<img src="images/12.jpg" alt="user profile">
 								
 								</a>
@@ -138,7 +138,7 @@
 						<!-- 임시메뉴 끝 -->
 						
 
-						<!-- 사원관리 메뉴 시작-->
+						<!-- 회원관리 메뉴 시작-->
 						<li class="nav-item has-submenu"><a
 							class="nav-link submenu-toggle" href="#"
 							data-bs-toggle="collapse" data-bs-target="#submenu-1"
@@ -149,7 +149,7 @@
 	  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 	</svg>
 
-							</span> <!--  사원관리 대제목  --> <span class="nav-link-text">회원관리</span> <span
+							</span> <!--  회원관리 대제목  --> <span class="nav-link-text">회원관리</span> <span
 								class="submenu-arrow"> <svg width="1em" height="1em"
 										viewBox="0 0 16 16" class="bi bi-chevron-down"
 										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +159,7 @@
 							</span>
 
 
-						</a> <!-- 사원관리 세부제목 -->
+						</a> <!-- 회원관리 세부제목 -->
 							<div id="submenu-1" class="collapse submenu submenu-1"
 								data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
@@ -169,7 +169,7 @@
 										href="empForm.do">회원등록</a></li>
 								</ul>
 							</div></li>
-					<!-- 사원 관리 메뉴 끝 -->
+					<!-- 회원 관리 메뉴 끝 -->
 					
 					
 
@@ -310,36 +310,36 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">회원등록</h1>
+				<h1 class="app-page-title">제품등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
 				<div class="row g-4 mb-4">
 					
 			<div class="tab-content" id="orders-table-tab-content">
 							
-					<!-- 사원 등록 -->		    
+					<!-- 제품 등록 -->		    
 					<div class="auth-form-container text-start mx-auto">
-						<form action="empPro.do" method="post">         
+						<form action="itemPro.do" method="post">         
 							<div class="mb-3">
-								사번<input id="empno" name="empno" type="number" class="form-control" placeholder="Empno" required="required">
+								제품명<input id="item_name" name="item_name" type="text" class="form-control" placeholder="item_name" required="required">
 							</div>
 							<div class="mb-3">
-								이름 <input id="emp_name" name="emp_name" type="text" class="form-control" placeholder="Name" required="required">
-							</div>
-							<div class="mb-3">
-								급여 <input id="sal" name="sal" type="number" class="form-control" placeholder="Salary" required="required">
+								가격<input id="item_price" name="item_price" type="number" class="form-control" placeholder="item_price" required="required">
 							</div>
 							
 							<div class="mb-3">
-								연락처<input id="phone" name="phone" type="tel" class="form-control" required="required" 	pattern="\d{2,3}-\d{3,4}-\d{4}" title="2,3자리-3,4자리-4자리" placeholder="010-xxxx-xxxx">
+								제품단위<input id="item_kind" name="item_kind" type="text" class="form-control" required="required"  value="0">
+							</div>
+							
+							<div class="mb-3">
+								제품내용<input id="item_desc" name="item_desc" type="text" class="form-control" required="required" placeholder="item_desc">
 							</div>
 							
 							<div class="text-center">
-								<input type="submit" value="회원등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
+								<input type="submit" value="제품 등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
 							</div>
 						</form>
 						
-						<div class="auth-option text-center pt-5">Already have an account? <a class="text-link" href="#" >Log in</a></div>
 					</div>	
 					
 					

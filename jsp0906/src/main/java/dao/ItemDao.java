@@ -78,6 +78,37 @@ public class ItemDao {
 		return list;
 		
 	}
+	// 제품 등록
+	public int itemInsert(Item item) throws SQLException {
+		int result = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql ="insert into item VALUES(ITEM_CODE_SEQ.nextval,?,?,?,?,sysdate)";
 
-
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, item.getItem_name());
+			pstmt.setInt(2, item.getItem_price());
+			pstmt.setString(3, item.getItem_kind());
+			pstmt.setString(4, item.getItem_desc());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if ( pstmt != null ) pstmt.close();
+			if ( conn != null ) conn.close();
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
+	
 }
