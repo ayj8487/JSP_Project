@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EMPInfo</title>
+<title>EmpDel</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -21,20 +21,6 @@
 
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
-
-<!-- 사원 삭제 스크립트 -->
-<script type="text/javascript">
-	function del(){
-		var delCon = confirm("사원을 삭제 하시겠습니까?");
-		if(delCon){
-			location.href="empDelete.do?empno=${emp.empno}";
-			return true;
-		}else {
-			return false;
-		}
-	}
-
-</script>
 
 </head>
 
@@ -327,105 +313,30 @@
 			<div class="row g-4 mb-4 ">
 					
 				<div class="tab-content" id="orders-table-tab-content">
-							
-							
-					<!-- 회원 수정  -->		    
-			    <h1 class="app-page-title">Account</h1>
-           <div class="row gy-4 justify-content-center align-items-center">
-	                <div class="col-12 col-lg-6">
-		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-						    <div class="app-card-header p-3 border-bottom-0">
-						        <div class="row align-items-center gx-3">
-							        <div class="col-auto">
-								        <div class="app-icon-holder">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-</svg>
-									    </div>
-						                <!-- 아이콘 -->
-							        </div>
-							        <div class="col-auto">
-								        <h4 class="app-card-title">Profile</h4>
-							        </div>
-						        </div>
-						    </div>
-						    				
-						    							
-							<!-- 회원 수정 시작 -->
-							<form action="empUpdate.do" method="post">
-							    <!-- 삭제 버튼 -->
-							<input type="button" class="btn-close" style="margin-top: -70px; margin-left: auto; position: absolute; right: 0; top: -70;" onclick="return del();" >
+					<div class="row gy-4 justify-content-center align-items-center">
+	       		
+							<div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
 
-						    <div class="app-card-body px-4 w-100">
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    
-									    <!-- 회원 이미지 -->
 									    <div class="col-auto">
-										    <div class="item-label mb-2"><strong>Photo</strong></div>
-										    <div class="item-data"><img class="profile-image" src="images/12.jpg" alt="empImage"></div>
-									    </div>
-									    
-								    </div>
-							    </div>
-							    
-							    <!-- 사번 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>Empno</strong></div>
-									        <div class="item-data"><input type="hidden" id="empno" name="empno" value="${emp.empno }"> ${emp.empno }</div>
+											<form action="empDeletePro.do">
+												<strong>삭제 할 사원의 사번을 확인하세요</strong>
+									       	 <div class="item-data">
+									       	 	<input type="text" id="empno" name="empno" class="form-control" required="required" value="${empno }" readonly="readonly" ><p>
+									       	 </div>
+												<input type="submit" value="완료"  class="btn app-btn-secondary">
+											</form>
+										
 									    </div>
 								    </div>
 							    </div>
-							    
-							    <!-- 이름 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>Name</strong></div>
-									        <div class="item-data"><input type="text" id="emp_name" name="emp_name" class="form-control" value="${emp.emp_name }" required="required"></div>
-									    </div>
-								    </div>
-							    </div>
-							    <!-- 급여 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>Salary</strong></div>
-									        <div class="item-data"><input type="text" id="sal" name="sal"  class="form-control"  value="${emp.sal }" required="required"></div>
-									    </div>
-								    </div>
-							    </div>
-							    
-							    <!-- 연락처 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>Phnoe</strong></div>
-									        <div class="item-data">
-											<input value="${emp.phone }" id="phone" name="phone" type="tel" class="form-control" required="required" 	pattern="\d{2,3}-\d{3,4}-\d{4}" title="2,3자리-3,4자리-4자리" placeholder="010-xxxx-xxxx">
-									        </div>
-									    </div>
-								    </div>
-							    </div>
-						 
-						    </div>
-						    <div class="app-card-footer p-4 mt-auto">
-						    <input type="submit"  class="btn app-btn-secondary" value="수정">
-						    </div>
-
-						    </form>
 							
-													   
 						</div>
-	                </div>
 					</div>
-					<!--  회원 수정 끝 -->
-					
-					</div>
-					</div>
-					</div>
+				</div>
+			
+			
+			</div>
 					
 				<!--  -->	
 				</div>

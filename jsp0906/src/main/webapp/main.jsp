@@ -197,9 +197,9 @@
 								data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link"
-										href="reset-password.html">제품조회</a></li>
+										href="itemList.do">제품조회</a></li>
 									<li class="submenu-item"><a class="submenu-link"
-										href="404.html">제품등록</a></li>
+										href="itemForm.do">제품등록</a></li>
 								</ul>
 							</div></li>
 						<!-- 제품관리 메뉴 끝 -->
@@ -237,9 +237,9 @@
 								data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link"
-										href="login.html">주문조회</a></li>
+										href="order1List.do">주문조회</a></li>
 									<li class="submenu-item"><a class="submenu-link"
-										href="signup.html">주문등록</a></li>
+										href="order1Form.do">주문등록</a></li>
 								</ul>
 							</div>
 						</li>
@@ -276,9 +276,9 @@
 								data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
 									<li class="submenu-item"><a class="submenu-link"
-										href="notifications.html">거래처조회</a></li>
+										href="customList.do">거래처조회</a></li>
 									<li class="submenu-item"><a class="submenu-link"
-										href="account.html">거래처등록</a></li>
+										href="customForm.do">거래처등록</a></li>
 								</ul>
 							</div></li>
 					<!-- 거래처 관리 메뉴 끝 -->
@@ -368,7 +368,7 @@
 							</div>
 
 							<!--컨텐츠2-->
-							<a class="app-card-link-mask" href="#"></a>
+							<a class="app-card-link-mask" href="itemForm.do"></a>
 
 						</div>
 					</div>
@@ -385,7 +385,7 @@
 							</div>
 
 							<!--컨텐츠 3-->
-							<a class="app-card-link-mask" href="#"></a>
+							<a class="app-card-link-mask" href="order1Form.do"></a>
 
 						</div>
 					</div>
@@ -403,7 +403,7 @@
 							</div>
 
 							<!--컨텐츠 4-->
-							<a class="app-card-link-mask" href="#"></a>
+							<a class="app-card-link-mask" href="customForm.do"></a>
 
 						</div>
 					</div>

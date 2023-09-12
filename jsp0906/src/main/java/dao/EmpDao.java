@@ -214,5 +214,31 @@ public class EmpDao {
 		System.out.println(result);
 		return result;
 	}
+	// 사원 삭제
+	public int empDelete(int empno) throws SQLException {
+		int result = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete emp where empno = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, empno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+	
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return result;
+		
+	}
 
 }
