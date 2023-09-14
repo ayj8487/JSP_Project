@@ -336,7 +336,7 @@
 											<c:forEach var="item" items="${list }">
 												<tr>
 												<td>${item.item_code }</td>
-												<td><a href= "itemUpdateForm.do">${item.item_name }</a></td>
+												<td><a href= "itemInfoForm.do?item_code=${item.item_code }">${item.item_name }</a></td>
 												<td>${item.item_price }</td>
 												<td>${item.item_kind }</td>
 												<td>${item.item_desc }</td>
@@ -360,9 +360,6 @@
 				
 				
 				</tbody>
-			</div>
-		</div>
-	</div>
 	<!-- 메인 끝 -->
 
 	<!-- Javascript -->

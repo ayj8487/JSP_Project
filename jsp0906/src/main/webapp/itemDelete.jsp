@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpREG</title>
+<title>ItemDel</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -21,7 +21,6 @@
 
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
-
 
 </head>
 
@@ -309,49 +308,39 @@
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
 				
-				<!-- 메인 제목 -->
-				<h1 class="app-page-title">제품등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
-				<div class="row g-4 mb-4">
+			<div class="row g-4 mb-4 ">
 					
-			<div class="tab-content" id="orders-table-tab-content">
-							
-					<!-- 제품 등록 -->		    
-					<div class="auth-form-container text-start mx-auto">
-						<form action="itemPro.do" method="post">         
-							<div class="mb-3">
-								제품명<input id="item_name" name="item_name" type="text" class="form-control" placeholder="item_name" required="required">
-							</div>
-							<div class="mb-3">
-								가격<input id="item_price" name="item_price" type="number" class="form-control" placeholder="item_price" required="required">
-							</div>
-							
-							<div class="mb-3">
-								제품단위<p><p>
-								<strong>타입1</strong>  <input id="item_kind" name="item_kind" type="radio"  checked="checked" value="0" > <p>
-								<strong>타입2</strong>  <input id="item_kind" name="item_kind" type="radio"   value="1">  <p>
-								<strong>타입3</strong>  <input id="item_kind" name="item_kind" type="radio"   value="2">  
+				<div class="tab-content" id="orders-table-tab-content">
+					<div class="row gy-4 justify-content-center align-items-center">
+	       		
+							<div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
 
-							</div>
-							<div class="mb-3">
-								제품내용<input id="item_desc" name="item_desc" type="text" class="form-control" required="required" placeholder="item_desc">
-							</div>
+									    <div class="col-auto">
+											<form action="itemDeletPro.do">
+												<strong>삭제할 제품을 확인해주세요</strong>
+									       	 <div class="item-data">
+									       	 	<input type="text" id="item_code" name="item_code" class="form-control" required="required" value="${item_code }" readonly="readonly" ><p>
+									       	 </div>
+   	 									       	 <div class="item-data">
+									       	 	<input type="text" id="item_name" name="item_name" class="form-control" required="required" value="${item_name }" readonly="readonly" ><p>
+									       	 </div>
+									       	 
+												<input type="submit" value="완료"  class="btn app-btn-secondary">
+											</form>
+										
+									    </div>
+								    </div>
+							    </div>
 							
-							<div class="text-center">
-								<input type="submit" value="제품 등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
-							</div>
-
-
-						</form>
-						
-					</div>	
-					
-					
+						</div>
 					</div>
-					</div>
-					</div>
-					</div>
+				</div>
+			
+			
+			</div>
 					
 				<!--  -->	
 				</div>
@@ -360,7 +349,7 @@
 				
 				</tbody>
 	<!-- 메인 끝 -->
-
+</div>
 	<!-- Javascript -->
 	<script src="assets/plugins/popper.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpREG</title>
+<title>CustomList</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -310,43 +310,35 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">제품등록</h1>
+				<h1 class="app-page-title">거래처 조회</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
 				<div class="row g-4 mb-4">
 					
 			<div class="tab-content" id="orders-table-tab-content">
-							
-					<!-- 제품 등록 -->		    
-					<div class="auth-form-container text-start mx-auto">
-						<form action="itemPro.do" method="post">         
-							<div class="mb-3">
-								제품명<input id="item_name" name="item_name" type="text" class="form-control" placeholder="item_name" required="required">
-							</div>
-							<div class="mb-3">
-								가격<input id="item_price" name="item_price" type="number" class="form-control" placeholder="item_price" required="required">
-							</div>
-							
-							<div class="mb-3">
-								제품단위<p><p>
-								<strong>타입1</strong>  <input id="item_kind" name="item_kind" type="radio"  checked="checked" value="0" > <p>
-								<strong>타입2</strong>  <input id="item_kind" name="item_kind" type="radio"   value="1">  <p>
-								<strong>타입3</strong>  <input id="item_kind" name="item_kind" type="radio"   value="2">  
+							    
+							    <div class="table-responsive">
+							        
+							        <table class="table app-table-hover mb-0 text-left">
+										<thead>
+											<tr>
+												<th class="cell">거래처코드</th>
+												<th class="cell">거래처명</th>
+												<th class="cell">전화번호</th>
+												<th class="cell">구분</th>
+												<th class="cell">거래처대표</th>
+											</tr>
+										</thead>
+										<tbody>
+										<!-- 거래처 리스트 -->
+												<tr>
 
-							</div>
-							<div class="mb-3">
-								제품내용<input id="item_desc" name="item_desc" type="text" class="form-control" required="required" placeholder="item_desc">
-							</div>
-							
-							<div class="text-center">
-								<input type="submit" value="제품 등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
-							</div>
-
-
-						</form>
-						
-					</div>	
-					
+												</tr>
+											
+											
+										</tbody>
+									</table>
+						        </div>
 					
 					</div>
 					</div>

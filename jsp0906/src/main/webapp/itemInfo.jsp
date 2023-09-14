@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpREG</title>
+<title>EMPInfo</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -22,6 +22,19 @@
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
+<!-- 사원 삭제 스크립트 -->
+<script type="text/javascript">
+	function del(){
+		var delCon = confirm("제품을 삭제 하시겠습니까?");
+		if(delCon){
+			location.href="itemDelete.do?item_code=${item.item_code}&item_name=${item.item_name}";
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+</script>
 
 </head>
 
@@ -309,58 +322,116 @@
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
 				
-				<!-- 메인 제목 -->
-				<h1 class="app-page-title">제품등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
-				<div class="row g-4 mb-4">
+			<div class="row g-4 mb-4 ">
 					
-			<div class="tab-content" id="orders-table-tab-content">
+				<div class="tab-content" id="orders-table-tab-content">
 							
-					<!-- 제품 등록 -->		    
-					<div class="auth-form-container text-start mx-auto">
-						<form action="itemPro.do" method="post">         
-							<div class="mb-3">
-								제품명<input id="item_name" name="item_name" type="text" class="form-control" placeholder="item_name" required="required">
-							</div>
-							<div class="mb-3">
-								가격<input id="item_price" name="item_price" type="number" class="form-control" placeholder="item_price" required="required">
-							</div>
 							
-							<div class="mb-3">
-								제품단위<p><p>
-								<strong>타입1</strong>  <input id="item_kind" name="item_kind" type="radio"  checked="checked" value="0" > <p>
-								<strong>타입2</strong>  <input id="item_kind" name="item_kind" type="radio"   value="1">  <p>
-								<strong>타입3</strong>  <input id="item_kind" name="item_kind" type="radio"   value="2">  
+					<!-- 제품 수정  -->		    
+			    <h1 class="app-page-title">Item</h1>
+           <div class="row gy-4 justify-content-center align-items-center">
+	                <div class="col-12 col-lg-6">
+		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+						  
+						    				
+						    							
+							<!-- 제품 수정 시작 -->
+							<form action="itemUpdate.do" method="post">
+							    <!-- 삭제 버튼 -->
+							<input type="button" class="btn-close" style="margin-top: -5px; margin-left: auto; position: absolute; right: 0; top: -70;" onclick="return del();" >
 
-							</div>
-							<div class="mb-3">
-								제품내용<input id="item_desc" name="item_desc" type="text" class="form-control" required="required" placeholder="item_desc">
-							</div>
+						    <div class="app-card-body px-4 w-100">
+							    
+							    <!-- 제품코드 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>제품코드</strong><p></div>
+									        <div class="item-data"><input type="hidden" id="item_code" name="item_code" value="${item.item_code }" >${item.item_code }</div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							    <!-- 제품이름 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>제품이름</strong></div>
+									        <div class="item-data"><input type="text" id="item_name" name="item_name" class="form-control" value="${item.item_name }" required="required"></div>
+									    </div>
+								    </div>
+							    </div>
+							    <!-- 가격 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>가격</strong></div>
+									        <div class="item-data"><input type="number" id="item_price" name="item_price"  class="form-control"  value="${item.item_price }" required="required"></div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							    <!-- 제품단위 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>제품단위</strong></div>
+									        <div class="item-data">
+											<input value="${item.item_kind }" id="item_kind" name="item_kind" type="text" class="form-control" required="required" >
+									        </div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							      <!-- 제품내용 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>제품내용</strong></div>
+									        <div class="item-data">
+											<input value="${item.item_desc }" id="item_desc" name="item_desc" type="text" class="form-control" required="required" >
+									        </div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							      <!-- 출시일자 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>출시일자</strong><p></div>
+												 ${item.item_birth }</div><p>
+									        </div>
+												<input type="submit"  class="btn app-btn-secondary" value="수정">
+									    </div >
+									    
+									    
+									</div>
+										    
+									    </form>
+									    </div>
+								    </div>
+								    </div>
+							    </div>
+						 
+						    </div>
+						    <div class="app-card-footer p-4 mt-auto">
+						    </div>
 							
-							<div class="text-center">
-								<input type="submit" value="제품 등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
-							</div>
-
-
-						</form>
-						
-					</div>	
+													   
+						</div>
+	                </div>
+					</div>
+					<!--  제품 수정 끝 -->
 					
-					
-					</div>
-					</div>
-					</div>
-					</div>
 					
 				<!--  -->	
-				</div>
 				<!-- 컨텐츠 항목 끝 -->
-				
 				
 				</tbody>
 	<!-- 메인 끝 -->
-
 	<!-- Javascript -->
 	<script src="assets/plugins/popper.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
