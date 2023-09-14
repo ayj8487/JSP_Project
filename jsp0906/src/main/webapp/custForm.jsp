@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpDel</title>
+<title>CustomREG</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -21,6 +21,7 @@
 
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
+
 
 </head>
 
@@ -63,13 +64,13 @@
 						<!-- 상태 바 시작  -->
 						<div class="app-utilities col-auto">
 							
-							<!--  회원 상태 -->							
+							<!--  사원 상태 -->							
 							<div class="app-utility-item app-user-dropdown dropdown">
 								<a class="dropdown-toggle" id="user-dropdown-toggle"
 									data-bs-toggle="dropdown" href="#" role="button"
 									aria-expanded="false"> 
 
-									<!-- 회원 이미지 --> 
+									<!-- 사원 이미지 --> 
 									<img src="images/12.jpg" alt="user profile">
 								
 								</a>
@@ -137,7 +138,7 @@
 						<!-- 임시메뉴 끝 -->
 						
 
-						<!-- 회원관리 메뉴 시작-->
+						<!-- 사원관리 메뉴 시작-->
 						<li class="nav-item has-submenu"><a
 							class="nav-link submenu-toggle" href="#"
 							data-bs-toggle="collapse" data-bs-target="#submenu-1"
@@ -148,7 +149,7 @@
 	  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 	</svg>
 
-							</span> <!--  회원관리 대제목  --> <span class="nav-link-text">회원관리</span> <span
+							</span> <!--  사원관리 대제목  --> <span class="nav-link-text">회원관리</span> <span
 								class="submenu-arrow"> <svg width="1em" height="1em"
 										viewBox="0 0 16 16" class="bi bi-chevron-down"
 										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +159,7 @@
 							</span>
 
 
-						</a> <!-- 회원관리 세부제목 -->
+						</a> <!-- 사원관리 세부제목 -->
 							<div id="submenu-1" class="collapse submenu submenu-1"
 								data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
@@ -168,7 +169,7 @@
 										href="empForm.do">회원등록</a></li>
 								</ul>
 							</div></li>
-					<!-- 회원 관리 메뉴 끝 -->
+					<!-- 사원 관리 메뉴 끝 -->
 					
 					
 
@@ -308,35 +309,44 @@
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
 				
+				<!-- 메인 제목 -->
+				<h1 class="app-page-title">거래처 등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
-			<div class="row g-4 mb-4 ">
+				<div class="row g-4 mb-4">
 					
-				<div class="tab-content" id="orders-table-tab-content">
-					<div class="row gy-4 justify-content-center align-items-center">
-	       		
-							<div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-
-									    <div class="col-auto">
-											<form action="empDeletePro.do"><p>
-												<strong>삭제 할 사원의 사번을 확인하세요</strong>
-									       	 <div class="item-data">
-									       	 	<input type="text" id="empno" name="empno" class="form-control" required="required" value="${empno }" readonly="readonly" ><p>
-									       	 </div>
-												<input type="submit" value="완료"  class="btn app-btn-secondary">
-											</form>
-										
-									    </div>
-								    </div>
-							    </div>
+			<div class="tab-content" id="orders-table-tab-content">
 							
-						</div>
+					<!-- 거래처 등록 -->		    
+					<div class="auth-form-container text-start mx-auto">
+						<form action="customPro.do" method="post">         
+							<div class="mb-3">
+								거래처명 <input id="custname" name="custname" type="text" class="form-control" placeholder="custname" required="required">
+							</div>
+							<div class="mb-3">
+								대표번호 <input id="cust_tel" name="cust_tel" type="tel" class="form-control" placeholder="cust_tel" required="required" pattern="\d{2,3}-\d{3,4}-\d{4}" title="2,3자리-3,4자리-4자리">
+							</div>
+							
+							<div class="mb-3">
+								구분	<input id="cust_gubun" name="cust_gubun" type="text" class="form-control" required="required" placeholder="cust_gubun" value="0">
+							</div>
+							
+							<div class="mb-3">
+								대표자 <input id="cust_ceo" name="cust_ceo" type="text" class="form-control" required="required" placeholder="cust_ceo">
+							</div>
+							
+							<div class="text-center">
+								<input type="submit" value="등 록" class="btn app-btn-primary w-40 theme-btn mx-auto">
+							</div>
+						</form>
+						
+					</div>	
+					
+					
 					</div>
-				</div>
-			
-			
-			</div>
+					</div>
+					</div>
+					</div>
 					
 				<!--  -->	
 				</div>
@@ -345,7 +355,7 @@
 				
 				</tbody>
 	<!-- 메인 끝 -->
-</div>
+
 	<!-- Javascript -->
 	<script src="assets/plugins/popper.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>

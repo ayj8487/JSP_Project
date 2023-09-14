@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 import dto.Item;
 
 public class ItemDao {
-
+// 제품
 	private static ItemDao instance;
 
 	private ItemDao() {

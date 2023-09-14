@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpREG</title>
+<title>CustomInfo</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -22,6 +22,19 @@
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
+<!-- 거래처 삭제 스크립트 -->
+<script type="text/javascript">
+	function del(){
+		var delCon = confirm("해당 거래처를 삭제하시겠습니까?");
+		if(delCon){
+			location.href="custDelete.do?custcode=${custom.custcode}";
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+</script>
 
 </head>
 
@@ -64,13 +77,13 @@
 						<!-- 상태 바 시작  -->
 						<div class="app-utilities col-auto">
 							
-							<!--  사원 상태 -->							
+							<!--  회원 상태 -->							
 							<div class="app-utility-item app-user-dropdown dropdown">
 								<a class="dropdown-toggle" id="user-dropdown-toggle"
 									data-bs-toggle="dropdown" href="#" role="button"
 									aria-expanded="false"> 
 
-									<!-- 사원 이미지 --> 
+									<!-- 회원 이미지 --> 
 									<img src="images/12.jpg" alt="user profile">
 								
 								</a>
@@ -138,7 +151,7 @@
 						<!-- 임시메뉴 끝 -->
 						
 
-						<!-- 사원관리 메뉴 시작-->
+						<!-- 회원관리 메뉴 시작-->
 						<li class="nav-item has-submenu"><a
 							class="nav-link submenu-toggle" href="#"
 							data-bs-toggle="collapse" data-bs-target="#submenu-1"
@@ -149,7 +162,7 @@
 	  <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 	</svg>
 
-							</span> <!--  사원관리 대제목  --> <span class="nav-link-text">회원관리</span> <span
+							</span> <!--  회원관리 대제목  --> <span class="nav-link-text">회원관리</span> <span
 								class="submenu-arrow"> <svg width="1em" height="1em"
 										viewBox="0 0 16 16" class="bi bi-chevron-down"
 										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +172,7 @@
 							</span>
 
 
-						</a> <!-- 사원관리 세부제목 -->
+						</a> <!-- 회원관리 세부제목 -->
 							<div id="submenu-1" class="collapse submenu submenu-1"
 								data-bs-parent="#menu-accordion">
 								<ul class="submenu-list list-unstyled">
@@ -169,7 +182,7 @@
 										href="empForm.do">회원등록</a></li>
 								</ul>
 							</div></li>
-					<!-- 사원 관리 메뉴 끝 -->
+					<!-- 회원 관리 메뉴 끝 -->
 					
 					
 
@@ -309,53 +322,117 @@
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
 				
-				<!-- 메인 제목 -->
-				<h1 class="app-page-title">주문 신규 등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
-				<div class="row g-4 mb-4">
+			<div class="row g-4 mb-4 ">
 					
-			<div class="tab-content" id="orders-table-tab-content">
+				<div class="tab-content" id="orders-table-tab-content">
 							
-					<!-- 주문 등록 -->		    
-					<div class="auth-form-container text-start mx-auto">
-						<form action="" method="post">         
-							<div class="mb-3">
-								주문일자<input id="" name="" type="number" class="form-control"  required="required">
-							</div>
-							<div class="mb-3">
-								거래처명 <input id="" name="" type="text" class="form-control"  required="required">
-							</div>
-							<div class="mb-3">
-								거래처요청내역 <input id="" name="" type="number" class="form-control"  required="required">
-							</div>
 							
-							<div class="mb-3">
-								담당사원(접수사원)<input id="" name="" type="tel" class="form-control"  placeholder="010-xxxx-xxxx">
-							</div>
+					<!-- 거래처 수정  -->		    
+			    <h1 class="app-page-title">거래처 수정</h1>
+           <div class="row gy-4 justify-content-center align-items-center">
+	                <div class="col-12 col-lg-6">
+		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+						  
+						    				
+						    							
+							<!-- 거래처 수정 시작 -->
+							<form action="custUpdate.do" method="post">
+							    <!-- 삭제 버튼 -->
+							<input type="button" class="btn-close" style="margin-top: -5px; margin-left: auto; position: absolute; right: 0; top: -70;" onclick="return del();" >
+
+						    <div class="app-card-body px-4 w-100">
+							    
+							    <!-- 거래처코드 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>거래처코드</strong><p></div>
+									        <div class="item-data"><input type="hidden" id="custcode" name="custcode" value="${custom.custcode }" >${custom.custcode }</div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							    <!-- 거래처명 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>거래처명</strong></div>
+									        <div class="item-data"><input type="text" id="custname" name="custname" class="form-control" value="${custom.custname }" required="required"></div>
+									    </div>
+								    </div>
+							    </div>
+							    <!-- 대표번호 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>대표번호</strong></div>
+									        <div class="item-data"><input type="tel" id="cust_tel" name="cust_tel"  class="form-control"  value="${custom.cust_tel }" required="required" pattern="\d{2,3}-\d{3,4}-\d{4}" title="2,3자리-3,4자리-4자리"></div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							    <!-- 구분 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>구분</strong></div>
+									        <div class="item-data">
+											<input value="${custom.cust_gubun }" id="cust_gubun" name="cust_gubun" type="text" class="form-control" required="required" >
+									        </div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							      <!-- 대표자 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>대표자</strong></div>
+									        <div class="item-data">
+											<input value="${custom.cust_ceo }" id="cust_ceo" name="cust_ceo" type="text" class="form-control" required="required" >
+									        </div>
+									    </div>
+								    </div>
+							    </div>
+							    
+							      <!-- 수정 -->
+							    <div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label">
+												<input type="submit"  class="btn app-btn-secondary" value="수정">
+										    </div>
+										 </div>
+							        </div>
+							    </div >
+									    
+									    
+								</div>
+										    
+								    </form>
+							  		  </div>
+							   		 </div>
+								    </div>
+							    </div>
+						 
+						    </div>
+						    <div class="app-card-footer p-4 mt-auto">
+						    </div>
 							
-							<div class="text-center">
-								<input type="submit" value="신규등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
-							</div>
-						</form>
-						
-						<div class="auth-option text-center pt-5">Already have an account? <a class="text-link" href="#" >Log in</a></div>
-					</div>	
+													   
+						</div>
+	                </div>
+					</div>
+					<!--  제품 수정 끝 -->
 					
-					
-					</div>
-					</div>
-					</div>
-					</div>
 					
 				<!--  -->	
-				</div>
 				<!-- 컨텐츠 항목 끝 -->
-				
 				
 				</tbody>
 	<!-- 메인 끝 -->
-
 	<!-- Javascript -->
 	<script src="assets/plugins/popper.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>

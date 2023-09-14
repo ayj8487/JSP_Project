@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpDel</title>
+<title>CustomDel</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -319,12 +319,12 @@
 								    <div class="row justify-content-between align-items-center">
 
 									    <div class="col-auto">
-											<form action="empDeletePro.do"><p>
-												<strong>삭제 할 사원의 사번을 확인하세요</strong>
+											<form action="custDelPro.do">
+												<strong>삭제할 거래처 코드를 확인하세요.</strong><p>
 									       	 <div class="item-data">
-									       	 	<input type="text" id="empno" name="empno" class="form-control" required="required" value="${empno }" readonly="readonly" ><p>
+									       	 	<input type="text" id="custcode" name="custcode" class="form-control" required="required" value="${custcode }" readonly="readonly" ><p>
 									       	 </div>
-												<input type="submit" value="완료"  class="btn app-btn-secondary">
+												<input type="submit" value="삭제"  class="btn app-btn-secondary">
 											</form>
 										
 									    </div>

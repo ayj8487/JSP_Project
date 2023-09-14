@@ -22,7 +22,7 @@
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
-<!-- 사원 삭제 스크립트 -->
+<!-- 제품 삭제 스크립트 -->
 <script type="text/javascript">
 	function del(){
 		var delCon = confirm("제품을 삭제 하시겠습니까?");

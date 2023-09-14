@@ -2,8 +2,6 @@ package service;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,26 +10,33 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CustomDao;
 import dto.Custom;
 
-public class CustomList implements CommandProcess {
+public class CustProAction implements CommandProcess{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("CustomList start ...");
+		
+		request.setCharacterEncoding("utf-8");
+		
+		try {
+		Custom custom = new Custom();
+		
+		custom.setCustname(request.getParameter("custname"));
+		custom.setCust_tel(request.getParameter("cust_tel"));
+		custom.setCust_gubun(request.getParameter("cust_gubun"));
+		custom.setCust_ceo(request.getParameter("cust_ceo"));
 		
 		CustomDao customDao = CustomDao.getInstance();
+		int result = customDao.customInsert(custom);
 
-		try {
-			List<Custom> list = customDao.customList();
-			
-			request.setAttribute("list", list);
-			
-			
+		request.setAttribute("result", result);
+		
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
-		return "customList.jsp";
+		
+		
+		return "custPro.jsp";
 	}
 
 }

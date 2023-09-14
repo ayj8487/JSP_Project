@@ -331,11 +331,15 @@
 										</thead>
 										<tbody>
 										<!-- 거래처 리스트 -->
+											<c:forEach var="cus" items="${list }">
 												<tr>
-
-												</tr>
-											
-											
+													<td><a href="custInfo.do?custcode=${cus.custcode }">${cus.custcode }</a></td>
+													<td>${cus.custname }</td>
+													<td>${cus.cust_tel }</td>
+													<td>${cus.cust_gubun }</td>
+													<td>${cus.cust_ceo }</td>
+												</tr>												
+											</c:forEach>											
 										</tbody>
 									</table>
 						        </div>

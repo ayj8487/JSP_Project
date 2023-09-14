@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import dto.Emp;
-
+// 사원
 //DBCP(커넥션풀) + 싱글톤
 public class EmpDao {
 
