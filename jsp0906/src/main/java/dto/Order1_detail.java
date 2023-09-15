@@ -8,7 +8,22 @@ public class Order1_detail {
 	private String item_order_desc;	// 제품요청내용
 	private String cancel;			// 반품구분
 	
+	private String custname; // Custom TBL join 조회용
+	private String item_name; // Item TBL join 조회용
 	
+	
+	public String getCustname() {
+		return custname;
+	}
+	public void setCustname(String custname) {
+		this.custname = custname;
+	}
+	public String getItem_name() {
+		return item_name;
+	}
+	public void setItem_name(String item_name) {
+		this.item_name = item_name;
+	}
 	public String getOrder_date() {
 		return order_date;
 	}
