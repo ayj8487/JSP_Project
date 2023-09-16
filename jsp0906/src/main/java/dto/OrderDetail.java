@@ -1,17 +1,26 @@
 package dto;
 
-public class Order1_detail {
+public class OrderDetail {
 
 	private String order_date;		// 주문일자
 	private int custcode;			// 거래처 코드
 	private int item_code;			// 제품코드
 	private String item_order_desc;	// 제품요청내용
+	private int item_count;			// 제품수량
 	private String cancel;			// 반품구분
+	
 	
 	private String custname; // Custom TBL join 조회용
 	private String item_name; // Item TBL join 조회용
 	
 	
+	
+	public int getItem_count() {
+		return item_count;
+	}
+	public void setItem_count(int item_count) {
+		this.item_count = item_count;
+	}
 	public String getCustname() {
 		return custname;
 	}

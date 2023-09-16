@@ -145,7 +145,31 @@ public class Order1Dao {
 			if (conn != null) conn.close();
 		}
 		
-		
 		return order1;
+	}
+	
+	// 주문 삭제
+	public int orderDel(String order_date, int custcode) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from order1 where order_date=? and custcode= ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, order_date);
+			pstmt.setInt(2, custcode);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return result;
 	}
 }

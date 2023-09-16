@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EMPInfo</title>
+<title>ItemInfo</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
