@@ -328,10 +328,7 @@
 							</div>
 							
 							<div class="mb-3">
-								제품단위<p><p>
-								<strong>타입1</strong>  <input id="item_kind" name="item_kind" type="radio"  checked="checked" value="0" > <p>
-								<strong>타입2</strong>  <input id="item_kind" name="item_kind" type="radio"   value="1">  <p>
-								<strong>타입3</strong>  <input id="item_kind" name="item_kind" type="radio"   value="2">  
+								제품단위<input id="item_kind" name="item_kind" type="text" class="form-control" placeholder="item_kind" value="0"  required="required">
 
 							</div>
 							<div class="mb-3">
