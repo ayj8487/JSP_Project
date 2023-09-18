@@ -100,7 +100,7 @@
 				<div class="app-branding">
 					<a class="app-logo" href="main.do"><img
 						class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span
-						class="logo-text">제품관리프로그램</span></a>
+						class="logo-text">(주)중앙시스템</span></a>
 				</div>
 				
 				<!-- 메뉴 리스트 시작 -->
@@ -124,8 +124,9 @@
 						</li>
 						<!-- HOME 메뉴 끝 -->
 						
-						
-						<!-- ###임시메뉴 메뉴 시작  -->
+									
+<!-- 
+						###임시메뉴 메뉴 시작 
 						<li class="nav-item"><a class="nav-link" href="#">
 								<span class="nav-icon">  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
@@ -133,8 +134,9 @@
 </svg>
 							</span> <span class="nav-link-text">### 임시메뉴</span>
 						</a></li>
-						<!-- 임시메뉴 끝 -->
-						
+						임시메뉴 끝
+ -->
+
 
 						<!-- 회원관리 메뉴 시작-->
 						<li class="nav-item has-submenu"><a
@@ -308,25 +310,26 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">Home</h1>
+				<h1 class="app-page-title">HOME</h1>
 				
 				<!-- 메인 알림 창 시작 -->
 				<div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration"
 					role="alert">
 					<div class="inner">
 						<div class="app-card-body p-3 p-lg-4">
-							<h3 class="mb-3">제품관리 프로그램</h3>
+							<h3 class="mb-3">(주)중앙 시스템</h3>
 							
 							<div class="row gx-5 gy-3">
 								
 								<div class="col-12 col-lg-9">
-									<div>제품 관리 프로그램 입니다. 회원가입을 진행해 주세요</div>
+									<div>(주)중앙 시스템 제품 관리 프로그램 입니다.<p> 
+										회원으로 등록해주세요.</div>
 								</div>
 
 								<!-- 버튼 -->
 								<div class="col-12 col-lg-3">
 									<!-- 메인 알림창 버튼 -->
-									<a class="btn app-btn-primary" href="#"> 회원가입 </a>
+									<a class="btn app-btn-primary" href="empForm.do"> 회원등록 </a>
 								</div>
 							
 							</div>
@@ -346,11 +349,12 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">회원관리</h4>
-								<div class="stats-figure">회원등록</div>
-								<div class="stats-meta text-success">회원관리</div>
+								<div class="stats-figure">회원조회</div>
+								<div class="stats-meta text-success">
+								회원조회 메뉴입니다.</div>
 							</div>
 							<!-- 컨텐츠 1 -->
-							<a class="app-card-link-mask" href="empForm.do"></a>
+							<a class="app-card-link-mask" href="empList.do"></a>
 
 						</div>
 					</div>
@@ -361,14 +365,14 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">제품관리</h4>
-								<div class="stats-figure">제품등록</div>
+								<div class="stats-figure">제품조회</div>
 								<div class="stats-meta text-success">
-									제품관리
+									제품관리 메뉴입니다.
 								</div>
 							</div>
 
 							<!--컨텐츠2-->
-							<a class="app-card-link-mask" href="itemForm.do"></a>
+							<a class="app-card-link-mask" href="itemList.do"></a>
 
 						</div>
 					</div>
@@ -380,12 +384,14 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">주문관리</h4>
-								<div class="stats-figure">주문등록</div>
-								<div class="stats-meta">주문관리</div>
+								<div class="stats-figure">주문조회</div>
+								<div class="stats-meta text-success">
+									주문관리 메뉴입니다.
+								</div>
 							</div>
 
 							<!--컨텐츠 3-->
-							<a class="app-card-link-mask" href="order1Form.do"></a>
+							<a class="app-card-link-mask" href="order1List.do"></a>
 
 						</div>
 					</div>
@@ -398,12 +404,14 @@
 						<div class="app-card app-card-stat shadow-sm h-100">
 							<div class="app-card-body p-3 p-lg-4">
 								<h4 class="stats-type mb-1">거래처관리</h4>
-								<div class="stats-figure">거래처등록</div>
-								<div class="stats-meta">거래처관리</div>
+								<div class="stats-figure">거래처조회</div>
+								<div class="stats-meta text-success">
+									거래처관리 메뉴입니다.
+								</div>
 							</div>
 
 							<!--컨텐츠 4-->
-							<a class="app-card-link-mask" href="customForm.do"></a>
+							<a class="app-card-link-mask" href="customList.do"></a>
 
 						</div>
 					</div>

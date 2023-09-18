@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>EmpREG</title>
+<title>ItemForm</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -102,7 +102,7 @@
 				<div class="app-branding">
 					<a class="app-logo" href="main.do"><img
 						class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"><span
-						class="logo-text">제품관리프로그램</span></a>
+						class="logo-text">(주)중앙시스템</span></a>
 				</div>
 				
 				<!-- 메뉴 리스트 시작 -->
@@ -125,18 +125,6 @@
 						</a>
 						</li>
 						<!-- HOME 메뉴 끝 -->
-						
-						
-						<!-- ###임시메뉴 메뉴 시작  -->
-						<li class="nav-item"><a class="nav-link" href="#">
-								<span class="nav-icon">  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
-  <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
-</svg>
-							</span> <span class="nav-link-text">### 임시메뉴</span>
-						</a></li>
-						<!-- 임시메뉴 끝 -->
-						
 
 						<!-- 회원관리 메뉴 시작-->
 						<li class="nav-item has-submenu"><a
@@ -310,7 +298,7 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">제품등록</h1>
+				<h1 class="app-page-title"><a href="itemList.do">제품</a> 등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
 				<div class="row g-4 mb-4">
@@ -328,7 +316,7 @@
 							</div>
 							
 							<div class="mb-3">
-								제품단위<input id="item_kind" name="item_kind" type="text" class="form-control" placeholder="item_kind" value="0"  required="required">
+								제품단위<input id="item_kind" name="item_kind" type="text" class="form-control" placeholder="item_kind" value="0" readonly="readonly" required="required">
 
 							</div>
 							<div class="mb-3">
@@ -336,7 +324,7 @@
 							</div>
 							
 							<div class="text-center">
-								<input type="submit" value="제품 등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
+								<input type="submit" value="신규등록" class="btn app-btn-primary w-40 theme-btn mx-auto">
 							</div>
 
 
