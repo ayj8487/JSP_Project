@@ -21,7 +21,6 @@ public class EmpProAction implements CommandProcess {
 			request.setCharacterEncoding("utf-8");
 
 			Emp emp = new Emp();
-			emp.setEmpno(Integer.parseInt(request.getParameter("empno")));
 			emp.setEmp_name(request.getParameter("emp_name"));
 			emp.setSal(Integer.parseInt(request.getParameter("sal")));
 			emp.setPhone(request.getParameter("phone"));

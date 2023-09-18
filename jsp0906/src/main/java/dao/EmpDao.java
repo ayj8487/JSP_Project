@@ -121,16 +121,15 @@ public class EmpDao {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into emp VALUES(?,?,?,?)";
+		String sql = "insert into emp VALUES(EMP_EMPNO_SEQ.nextval,?,?,?)";
 
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, emp.getEmpno());
-			pstmt.setString(2, emp.getEmp_name());
-			pstmt.setInt(3, emp.getSal());
-			pstmt.setString(4, emp.getPhone());
+			pstmt.setString(1, emp.getEmp_name());
+			pstmt.setInt(2, emp.getSal());
+			pstmt.setString(3, emp.getPhone());
 
 			result = pstmt.executeUpdate();
 

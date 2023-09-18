@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>OrderDetailInfo</title>
+<title>OrderDetailList</title>
 
 <!-- Meta -->
 <meta charset="utf-8">
@@ -22,19 +22,6 @@
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
-<!-- 거래처 삭제 스크립트 -->
-<script type="text/javascript">
-	function del(){
-		var delCon = confirm("해당 주문을 삭제하시겠습니까?");
-		if(delCon){
-			location.href="orderDelete.do?order_date=${order1.order_date }&custcode=${order1.custcode }&custname=${order1.custname}";
-			return true;
-		}else {
-			return false;
-		}
-	}
-
-</script>
 
 </head>
 
@@ -322,119 +309,58 @@
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
 				
+				<!-- 메인 제목 -->
+				<h1 class="app-page-title">전체 주문</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
-			<div class="row g-4 mb-4 ">
+				<div class="row g-4 mb-4">
 					
-				<div class="tab-content" id="orders-table-tab-content">
-							
-							
-					<!-- 주문 거리처 주문상세  -->		    
-			    <h1 class="app-page-title">주문 거래처 내역</h1>
-           <div class="row gy-4 justify-content-center align-items-center">
-	                <div class="col-12 col-lg-6">
-		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-						  
-						    				
-						    							
-							<!-- 주문거래처  시작 -->
-							<form action="orderDetailForm.do" method="post">
-								<input type="hidden" name="order_date" value="${order1.order_date }">
-								<input type="hidden" name="custcode" value="${order1.custcode }">
-								
-						    <div class="app-card-body px-4 w-100">
+			<div class="tab-content" id="orders-table-tab-content">
 							    
-							    <!-- 주문일자 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>주문일자</strong><p></div>
-									        <div class="item-data">${order1.order_date }</div>
-									    </div>
-								    </div>
-							    </div>
-							    
-							    <!-- 거래처 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>거래처</strong></div>
-									        <div class="item-data">${order1.custcode }  ${order1.custname }</div>
-									    </div>
-								    </div>
-							    </div>
-							    
-							    <!-- 주문요청내역 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>주문요청내역</strong></div>
-									        <div class="item-data">${order1.order_desc }</div>
-									    </div>
-								    </div>
-							    </div>
-							    
-							    <!-- 접수사원 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>접수사원</strong></div>
-									        <div class="item-data">${order1.empno}  ${order1.emp_name }</div>
-									    </div>
-								    </div>
-							    </div>
-							    
-							      <!-- 접수상태 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>접수상태</strong></div>
-									        <div class="item-data">${order1.order_status }</div>
-									    </div>
-								    </div>
-							    </div>
-							    
-							      <!-- 수정 -->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label">
-										    	<c:if test="${order1.order_status == 0 }">
-													<input type="submit"  class="btn app-btn-secondary" value="제품추가">
-													<input type="button" class="btn app-btn-secondary" onclick="return del();" value="주문삭제">		
-										    	</c:if>
-											   	<input type="button"  class="btn app-btn-secondary" onclick="location.href='order1List.do'" value="주문목록">
-										   
-										    </div>
-										 </div>
-							        </div>
-							    </div >
-									    
-									    
-								</div>
-										    
-								    </form>
-							  		  </div>
-							   		 </div>
-								    </div>
-							    </div>
-						 
-						    </div>
-						    <div class="app-card-footer p-4 mt-auto">
-						    </div>
-							
-													   
-						</div>
-	                </div>
+							    <div class="table-responsive">
+							        
+							        <table class="table app-table-hover mb-0 text-left">
+										<thead>
+											<tr>
+												<th class="cell">주문일자</th>
+												<th class="cell">거래처</th>
+												<th class="cell">제품</th>
+												<th class="cell">요청사항</th>
+												<th class="cell">반품구분</th>
+												<th class="cell">제품수량</th>
+
+											</tr>
+										</thead>
+										<tbody>
+										<!-- 제품 리스트 -->
+											<c:forEach var="list" items="${list }">
+												<tr>
+												<td>${list.order_date }</td>
+												<td>${list.custcode }  ${list.custname }</td>
+												<td>${list.item_code }  ${list.item_name }</td>
+												<td>${list.item_order_desc }</td>
+												<td>${list.cancel }</td>
+												<td>${list.item_count }</td>
+												</tr>
+											
+											</c:forEach>
+										</tbody>
+									</table>
+						        </div>
+					
 					</div>
-					<!--  제품 수정 끝 -->
-					
+					</div>
+					</div>
+					</div>
 					
 				<!--  -->	
+				</div>
 				<!-- 컨텐츠 항목 끝 -->
+				
 				
 				</tbody>
 	<!-- 메인 끝 -->
+
 	<!-- Javascript -->
 	<script src="assets/plugins/popper.min.js"></script>
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>

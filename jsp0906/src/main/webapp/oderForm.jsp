@@ -311,7 +311,7 @@
 			<div class="container-xl">
 				
 				<!-- 메인 제목 -->
-				<h1 class="app-page-title">주문 신규등록</h1>
+				<h1 class="app-page-title"><a href="order1List.do">주문</a> 신규등록</h1>
 				
 				<!-- 메인 컨텐츠 항목 시작 -->
 				<div class="row g-4 mb-4">

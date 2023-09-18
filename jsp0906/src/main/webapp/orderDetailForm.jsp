@@ -382,7 +382,7 @@
 							</form>
 									
 
- 				<p><h1 class="app-page-title">주문 상세리스트</h1>
+ 				<p><h1 class="app-page-title"><a href="orderDetailInfo.do">주문 상세리스트</a></h1>
 				       
 				        <table class="table app-table-hover mb-0 text-center" id="addItemTable">
 										<thead>

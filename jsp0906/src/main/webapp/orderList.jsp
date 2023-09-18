@@ -339,16 +339,19 @@
 													</td>
 													<td>${order.order_desc }</td>
 													<td>${order.emp_name }</td>
-
 												</tr>
 											
-											
 											</c:forEach>
+								
 										</tbody>
+								
 									</table>
+									
 						        </div>
-					
-					</div>
+							</div>
+									<div class="text-center">
+										<button class="btn app-btn-primary w-40 theme-btn mx-auto" onclick="location.href='order1Form.do';">신규등록</button>
+									</div>					
 					</div>
 					</div>
 					</div>

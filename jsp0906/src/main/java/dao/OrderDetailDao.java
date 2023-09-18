@@ -133,4 +133,42 @@ public class OrderDetailDao {
 			
 			return result;
 		}
+		// 주문상세 전체 조회
+		public List<OrderDetail> orderDetailAll(){
+			List<OrderDetail> list = new ArrayList<>();
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "select "
+							+ "o.order_date, o.custcode, o.item_code, "
+							+ "i.item_name ,c.custname, o.item_order_desc,"
+							+ " o.cancel, o.item_count "
+					+ " from order1_detail o  "
+					+ "join custom c on c.custcode = o.custcode "
+					+ "join item i on o.item_code = i.item_code";
+
+			try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				OrderDetail orderDetail = new OrderDetail();
+				orderDetail.setOrder_date(rs.getString("order_date"));
+				orderDetail.setCustcode(rs.getInt("custcode"));
+				orderDetail.setItem_code(rs.getInt("item_code"));
+				orderDetail.setItem_name(rs.getString("item_name"));
+				orderDetail.setCustname(rs.getString("custname"));
+				orderDetail.setItem_order_desc(rs.getString("item_order_desc"));
+				orderDetail.setCancel(rs.getString("cancel"));
+				orderDetail.setItem_count(rs.getInt("item_count"));
+				
+				list.add(orderDetail);
+			}
+			
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			return list; 
+		}
 }
