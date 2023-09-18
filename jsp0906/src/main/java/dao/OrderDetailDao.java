@@ -68,47 +68,8 @@ public class OrderDetailDao {
 			
 			return result;
 		}
-		// 주문상세 추가 리스트
-		public List<OrderDetail> orderDetilList() throws SQLException{
-			List<OrderDetail> oderDetailList = new ArrayList<>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = "select d.order_date,  c.custcode, c.custname, "
-								+ " i.item_name, i.item_code, "
-								+ " d.item_order_desc,d.item_count"
-						+ " from custom c "
-							+ " join order1_detail d  on c.custcode = d.custcode "
-							+ " join item i on i.item_code = d.item_code";
-			
-			try {
-				conn = getConnection();
-				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				
-				while(rs.next()) {
-					OrderDetail orderDetail = new OrderDetail();
-					orderDetail.setOrder_date(rs.getString("order_date"));
-					orderDetail.setCustcode(rs.getInt("custcode"));
-					orderDetail.setCustname(rs.getString("custname"));
-					orderDetail.setItem_name(rs.getString("item_name"));
-					orderDetail.setItem_code(rs.getInt("item_code"));
-					orderDetail.setItem_order_desc(rs.getString("item_order_desc"));
-					orderDetail.setItem_count(rs.getInt("item_count"));
-				
-					oderDetailList.add(orderDetail);
-				}
-			
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			} finally {
-				if(rs != null) rs.close();
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-			}
-			
-			return oderDetailList;
-		}
+		
+		
 		// 주문상세 삭제
 		public int orderDetailDel(String order_date, int custcode) throws SQLException {
 			int result = 0;
@@ -134,7 +95,7 @@ public class OrderDetailDao {
 			return result;
 		}
 		// 주문상세 전체 조회
-		public List<OrderDetail> orderDetailAll(){
+		public List<OrderDetail> orderDetailAll() throws SQLException{
 			List<OrderDetail> list = new ArrayList<>();
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -168,7 +129,57 @@ public class OrderDetailDao {
 			
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
+			}finally {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
 			}
 			return list; 
 		}
+		
+		// 주문상세 리스트
+		public List<OrderDetail> orderInfoList(String order_date,int custcode) throws SQLException{
+			List<OrderDetail> list = new ArrayList<>();
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = 
+				"select od.order_date, od.custcode,"
+						+ " od.item_code ,i.item_name, "
+						+ "od.item_order_desc, od.item_count "
+				+ "from order1_detail od "
+				+ "join order1 o "
+					+ "on od.order_date = o.order_date "
+				+ "and od.custcode = o.custcode "
+				+ "join item i  "
+					+ "on od.item_code = i.item_code "
+				+ "where od.order_date = ? and od.custcode = ? ";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, order_date);
+				pstmt.setInt(2, custcode);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					OrderDetail orderDetail = new OrderDetail();
+					orderDetail.setOrder_date(rs.getString("order_date"));
+					orderDetail.setCustcode(rs.getInt("custcode"));
+					orderDetail.setItem_code(rs.getInt("item_code"));
+					orderDetail.setItem_name(rs.getString("item_name"));
+					orderDetail.setItem_order_desc(rs.getString("item_order_desc"));
+					orderDetail.setItem_count(rs.getInt("item_count"));
+					list.add(orderDetail);
+				}
+			
+			}catch (Exception e) {
+				System.out.println(e.getMessage());
+			}finally {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}
+			return list;
+		}
+		
 }

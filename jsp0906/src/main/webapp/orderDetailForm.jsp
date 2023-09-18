@@ -357,9 +357,9 @@
 														</select>
 													</td>
 													<td>
-													<input type="text" name="item_order_desc" class="form-control">
+													<input type="text" name="item_order_desc" class="form-control" required="required" placeholder="요청 내용을 입력하세요">
 													<td>
-													<input type="number" name="item_count" class="form-control" value=1  style="text-align: center;">
+													<input type="number" name="item_count" class="form-control" value=1 min="1"  style="text-align: center;">
 													</td>
 													<td><input type="submit" class="btn app-btn-secondary"  value="거래처제품 추가등록"></td>
 												</tr>
@@ -384,14 +384,24 @@
 										</thead>
 										<tbody>
 										<!--  리스트 -->
-											<c:forEach var="oderDetailList" items="${oderDetailList }">
+										<%-- 	<c:forEach var="oderDetailList" items="${oderDetailList }">
 												<tr>
 													<td>${oderDetailList.item_code }</td>
 													<td><a href="orderDetailInfo.do?order_date=${oderDetailList.order_date }&custcode=${oderDetailList.custcode}">${oderDetailList.item_name }</a></td>
 													<td>${oderDetailList.item_order_desc }</td>
 													<td>${oderDetailList.item_count }</td>
 												</tr>
+											</c:forEach> --%>
+											
+											<c:forEach var="list" items="${list }">
+												<tr>
+													<td>${list.item_code }</td>
+													<td>${list.item_name }</td>
+													<td>${list.item_order_desc }</td>
+													<td>${list.item_count }</td>
+												</tr>
 											</c:forEach>
+											
 											
 											
 										</tbody>

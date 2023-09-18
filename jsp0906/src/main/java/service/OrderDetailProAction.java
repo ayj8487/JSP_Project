@@ -24,19 +24,19 @@ public class OrderDetailProAction implements CommandProcess{
 
 		try {
 			request.setCharacterEncoding("utf-8");
-			Order1Dao order1Dao = Order1Dao.getInstance();
 
 			String order_date = request.getParameter("order_date");
 			int custcode = Integer.parseInt(request.getParameter("custcode"));
-
+			// 주문 거래처 내역
+			Order1Dao order1Dao = Order1Dao.getInstance();
 			Order1 order1 = order1Dao.oderSelect(order_date, custcode);
 			
+			// 주문 상세 입력(제품리스트)
 			ItemDao itemDao = ItemDao.getInstance();
-			
 			List<Item>  item = itemDao.itemList();
 			
+			// 주문 상세리스트
 			OrderDetailDao orderDetailDao = OrderDetailDao.getInstance();
-			
 			OrderDetail orderDetail = new OrderDetail();
 			
 			orderDetail.setOrder_date(request.getParameter("order_date"));
@@ -45,12 +45,10 @@ public class OrderDetailProAction implements CommandProcess{
 			orderDetail.setItem_order_desc(request.getParameter("item_order_desc"));
 			orderDetail.setItem_count(Integer.parseInt(request.getParameter("item_count")));
 			
+			// 거래처제품 추가등록 실행 Insert
+			orderDetailDao.orderDetailInsert(orderDetail);
 			
-			int result =  orderDetailDao.orderDetailInsert(orderDetail);
 			
-			
-			
-			request.setAttribute("result", result);
 			request.setAttribute("item", item);
 			request.setAttribute("order1", order1);
 			
@@ -59,7 +57,6 @@ public class OrderDetailProAction implements CommandProcess{
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-	
 		
 		return "orderUpdateForm.do";
 	}

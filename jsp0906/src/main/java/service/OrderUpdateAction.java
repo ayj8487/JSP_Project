@@ -23,27 +23,29 @@ public class OrderUpdateAction implements CommandProcess{
 
 		try {
 			request.setCharacterEncoding("utf-8");
-			Order1Dao order1Dao = Order1Dao.getInstance();
-
+			
 			String order_date = request.getParameter("order_date");
 			int custcode = Integer.parseInt(request.getParameter("custcode"));
-
+			
+			// 주문 거래처 내역
+			Order1Dao order1Dao = Order1Dao.getInstance();
 			Order1 order1 = order1Dao.oderSelect(order_date, custcode);
 			
+			// 주문 상세 입력(제품리스트)
 			ItemDao itemDao = ItemDao.getInstance();
-			
 			List<Item>  item = itemDao.itemList();
 			
+			// 주문 상세리스트
 			OrderDetailDao detailDao = OrderDetailDao.getInstance();
-			
-			List<OrderDetail> oderDetailList = detailDao.orderDetilList();
+			List<OrderDetail> list = detailDao.orderInfoList(order_date,custcode);
 			
 			
 			request.setAttribute("order_date", order_date);
 			request.setAttribute("custcode", custcode);
-			request.setAttribute("oderDetailList", oderDetailList);
-			request.setAttribute("item", item);
+			
 			request.setAttribute("order1", order1);
+			request.setAttribute("item", item);
+			request.setAttribute("list", list);
 			
 			
 		} catch (SQLException e) {
