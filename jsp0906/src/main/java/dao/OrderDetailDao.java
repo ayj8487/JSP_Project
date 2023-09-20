@@ -70,7 +70,7 @@ public class OrderDetailDao {
 		}
 		
 		
-		// 주문상세 삭제
+		// 주문상세 삭제 ( 주문 삭제시 같이 삭제 )
 		public int orderDetailDel(String order_date, int custcode) throws SQLException {
 			int result = 0;
 			Connection conn = null;
@@ -94,6 +94,33 @@ public class OrderDetailDao {
 			
 			return result;
 		}
+		
+		// 주문상세 삭제 ( 주문 상세만 삭제 )
+		public int orderDetailDelPro(String order_date, int custcode, int item_code) throws SQLException {
+			int result = 0;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			String sql = "delete order1_detail where order_date = ? and custcode = ? and item_code = ?";
+			
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, order_date);
+				pstmt.setInt(2, custcode);
+				pstmt.setInt(3, item_code);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				if(pstmt != null)pstmt.close();
+				if(conn != null)conn.close();
+			}
+			return result;
+		}
+		
+		
 		// 주문상세 전체 조회
 		public List<OrderDetail> orderDetailAll() throws SQLException{
 			List<OrderDetail> list = new ArrayList<>();

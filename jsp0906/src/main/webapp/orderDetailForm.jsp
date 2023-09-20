@@ -22,6 +22,22 @@
 <!-- App CSS -->
 <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
+<!-- 주문상세 삭제 스크립트 -->
+<script type="text/javascript">
+
+function del(itemCode) {
+
+	if (confirm('추가주문을 삭제하시겠습니까?')) {
+        // 폼의 데이터 변경 ( name 속성이 "item_code" 인 첫 번째 input 요소를 선택하고 )
+        // 그 요소의 value(값)으로  itemCode 변수의 값을 설정
+        document.querySelector('input[name="item_code"]').value = itemCode;
+		// 폼 데이터 제출 
+        document.getElementById('orderDetailForm').submit();
+    }else{
+    	return false;
+    }
+   }
+</script>
 
 </head>
 
@@ -349,7 +365,7 @@
 										<tbody>
 												<tr>
 													<td>
-														<select name="item_code" class = "form-select form-select-sm w-auto">
+														<select id="item_code"  name="item_code" class = "form-select form-select-sm w-auto">
 															<c:forEach var="item" items="${item }">
 																<option value="${item.item_code }">${item.item_name }</option>
 																
@@ -372,6 +388,10 @@
 
  				<p><h1 class="app-page-title"><a href="orderDetailInfo.do">주문 상세리스트</a></h1>
 				       
+					<form id ="orderDetailForm" action="orderDetailDel.do" method="get">
+						<input type="hidden" name="order_date" value="${order1.order_date }">
+						<input type="hidden" name="custcode" value="${order1.custcode }">
+					
 				        <table class="table app-table-hover mb-0 text-center" id="addItemTable">
 										<thead>
 											<tr>
@@ -379,33 +399,33 @@
 												<th class="cell">제품명</th>
 												<th class="cell">제품주문내용</th>
 												<th class="cell">제품수량</th>
+												<th class="cell">삭제</th>
 
 											</tr>
 										</thead>
+										
+										
 										<tbody>
-										<!--  리스트 -->
-										<%-- 	<c:forEach var="oderDetailList" items="${oderDetailList }">
-												<tr>
-													<td>${oderDetailList.item_code }</td>
-													<td><a href="orderDetailInfo.do?order_date=${oderDetailList.order_date }&custcode=${oderDetailList.custcode}">${oderDetailList.item_name }</a></td>
-													<td>${oderDetailList.item_order_desc }</td>
-													<td>${oderDetailList.item_count }</td>
-												</tr>
-											</c:forEach> --%>
-											
+										<!--  주문 상세 리스트 -->
 											<c:forEach var="list" items="${list }">
 												<tr>
 													<td>${list.item_code }</td>
 													<td>${list.item_name }</td>
 													<td>${list.item_order_desc }</td>
 													<td>${list.item_count }</td>
+													<td>
+												     <button class="btn-close"  onclick="return del('${list.item_code}')"></button>
+													  <!-- 버튼을 클릭 했을 때 해당 item_code 만 url 로 넘길수 있게  -->
+							                        <input type="hidden" name="item_code" value="">
+													</td>
 												</tr>
 											</c:forEach>
 											
 											
 											
 										</tbody>
-									</table>
+							</table>
+						</form>
 
 
 				</div>
